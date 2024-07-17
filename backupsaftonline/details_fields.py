@@ -1,0 +1,9 @@
+details_fields = [
+    "Empresa.Emp_NIF", "Empresa.Emp_Tag", "Empresa.Emp_Empresa", "Empresa.Emp_CAE",
+    "Empresa.Emp_Morada", "Empresa.InfoGerentes", "Empresa.Emp_CodPostal", "Empresa.Emp_CodPostalLoc",
+    "Empresa.InfoFreguesia", "Empresa.InfoConcelho", "Empresa.InfoDistrito", "Empresa.InfoDataConstituicao",
+    "Empresa.InfoDataInicioAtividade", "Empresa.InfoReparticaoFinancas", "Empresa.Emp_Email", "Empresa.Emp_Telefone",
+    "Empresa.Emp_Telemovel", "Empresa.Emp_EmailG", "Empresa.Emp_GestorNome", "Empresa.Emp_CertidaoPCodigo",
+    "Empresa.Emp_CertidaoPValidade", "Empresa.Emp_TipoContabilidade", "Empresa.Emp_TipoIVA", "ContabilistaCertificadoIVA",
+    "Empresa.Emp_RCBE"
+]
