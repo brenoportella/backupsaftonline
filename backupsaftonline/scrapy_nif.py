@@ -1,0 +1,29 @@
+from search_nif import search_nif
+from details_fields import details_fields
+from accounts_fields import account_fields
+from extract_info import extract_info
+from nifs import nifs
+from selenium.webdriver.common.by import By
+
+
+def scrapy_nif(driver):
+    info_list = []
+
+    for nif in nifs:
+        search_nif(driver, nif)
+        for field in details_fields:
+            details = extract_info(driver, field)
+
+        bt_conta = driver.find_element(By.ID, "Contas-tab")
+        bt_conta.click()
+
+        for field in account_fields:
+            accounts = extract_info(driver, field)
+        
+        info_dict = {**details, **accounts}
+        info_list.append(info_dict)
+
+        driver.get("https://app.saftonline.pt/empresas?gv-emp-page=1&gv-emp-rows=1600")
+        print(nif)
+
+    return info_list
