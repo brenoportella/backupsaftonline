@@ -1,8 +1,8 @@
-from backupsaftonline.search_nif import search_nif
-from backupsaftonline.details_fields import details_fields
 from backupsaftonline.accounts_fields import account_fields
+from backupsaftonline.details_fields import details_fields
 from backupsaftonline.extract_info import extract_info
 from backupsaftonline.nifs import nifs
+from backupsaftonline.search_nif import search_nif
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
