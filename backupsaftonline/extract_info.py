@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-def extract_conta(driver, field_name):
+def extract_info(driver, field_name):
     info_dict = {}
     time.sleep(1)
 
