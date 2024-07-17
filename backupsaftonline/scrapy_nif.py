@@ -17,18 +17,20 @@ def scrapy_nif(driver):
             details = extract_info(driver, field)
 
         bt_conta = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.ID,"Contas-tab"))
+            EC.element_to_be_clickable((By.ID, 'Contas-tab'))
         )
-        driver.execute_script("arguments[0].scrollIntoView(true);", bt_conta)
-        driver.execute_script("arguments[0].click();", bt_conta)
+        driver.execute_script('arguments[0].scrollIntoView(true);', bt_conta)
+        driver.execute_script('arguments[0].click();', bt_conta)
 
         for field in account_fields:
             accounts = extract_info(driver, field)
-        
+
         info_dict = {**details, **accounts}
         info_list.append(info_dict)
 
-        driver.get("https://app.saftonline.pt/empresas?gv-emp-page=1&gv-emp-rows=1600")
+        driver.get(
+            'https://app.saftonline.pt/empresas?gv-emp-page=1&gv-emp-rows=1600'
+        )
         print(nif)
 
     return info_list
