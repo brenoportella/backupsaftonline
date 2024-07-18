@@ -20,3 +20,6 @@ def setup_driver():
 
     driver = webdriver.Edge(options=options)
     return driver
+
+def quit_driver(driver):
+    driver.quit()
