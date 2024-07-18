@@ -1,4 +1,4 @@
-def nifs():
-    with open('./tests/nif_saft.txt', 'r') as file:
+def nifs(file):
+    with open(file, 'r') as file:
         nifs = [line.strip() for line in file.readlines()]
     return nifs
