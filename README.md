@@ -17,3 +17,13 @@ pip install -r requiriments.txt
 ```bash
 python backup.py
 ```
+
+## Roadmap
+### Version 1.0
+- [ ] Choose browser
+- [ ] Change credentials
+- [ ] Extract NIF list
+- [ ] Choose shutdown the computer
+
+### Version 2.0
+- [ ] GUI version
