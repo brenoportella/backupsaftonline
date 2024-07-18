@@ -1,7 +1,10 @@
-from selenium import webdriver
 import os
 
+from selenium import webdriver
+
 download_dir = os.path.dirname(os.path.abspath(__file__))
+
+
 def setup_driver():
     edge_prefs = {
         'download.neverAsk.saveToDisk': 'application/xml, text/anytext, text/plaintext',
