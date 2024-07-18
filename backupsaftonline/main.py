@@ -4,6 +4,7 @@ import pandas as pd
 
 import backupsaftonline.credentials as credentials
 from backupsaftonline.driver import setup_driver as driver
+from backupsaftonline.driver import quit_driver
 from backupsaftonline.login import login
 from backupsaftonline.scrapy_nif import scrapy_nif
 
@@ -20,7 +21,7 @@ class Backup:
         login(self.driver, email, password)
         info = scrapy_nif(self.driver)
 
-        driver.quit()
+        quit_driver(self.driver)
 
         df = pd.DataFrame(info)
         process_date = time.strftime('%d-%m-%Y')
