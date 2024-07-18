@@ -11,8 +11,7 @@ def extract_info(driver, field_name):
             EC.presence_of_element_located((By.NAME, field_name))
         )
         field_value = field.get_attribute('value')
-        info_dict[field_name] = field_value
     except NoSuchElementException:
-        info_dict[field_name] = 'N/A'
+        field_value = 'N/A'
 
-    return info_dict
+    return field_value
