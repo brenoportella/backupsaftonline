@@ -9,9 +9,9 @@ from backupsaftonline.nifs import nifs
 from backupsaftonline.search_nif import search_nif
 
 
-def scrapy_nif(driver):
+def scrapy_nif(driver, file):
     info_list = []
-    my_nifs = nifs()
+    my_nifs = nifs(file)
     for nif in my_nifs:
         search_nif(driver, nif)
 
