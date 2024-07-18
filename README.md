@@ -24,6 +24,7 @@ python backup.py
 - [ ] Change credentials
 - [ ] Extract NIF list
 - [ ] Choose shutdown the computer
+- [ ] Build a package
 
 ### Version 2.0
 - [ ] GUI version
