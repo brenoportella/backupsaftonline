@@ -20,9 +20,9 @@ python backup.py
 
 ## Roadmap
 ### Version 1.0
+- [X] Extract NIF list
 - [ ] Choose browser
 - [ ] Change credentials
-- [ ] Extract NIF list
 - [ ] Choose shutdown the computer
 - [ ] Build a package
 
