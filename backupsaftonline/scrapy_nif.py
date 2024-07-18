@@ -14,8 +14,10 @@ def scrapy_nif(driver):
     my_nifs = nifs()
     for nif in my_nifs:
         search_nif(driver, nif)
+
+        details = {}
         for field in details_fields:
-            details = extract_info(driver, field)
+            details[field] = extract_info(driver, field)
 
         bt_conta = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.ID, 'Contas-tab'))
@@ -23,8 +25,9 @@ def scrapy_nif(driver):
         driver.execute_script('arguments[0].scrollIntoView(true);', bt_conta)
         driver.execute_script('arguments[0].click();', bt_conta)
 
+        accounts = {}
         for field in account_fields:
-            accounts = extract_info(driver, field)
+            accounts[field] = extract_info(driver, field)
 
         info_dict = {**details, **accounts}
         info_list.append(info_dict)
