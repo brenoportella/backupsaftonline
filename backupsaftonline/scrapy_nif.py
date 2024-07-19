@@ -7,7 +7,8 @@ from backupsaftonline.details_fields import details_fields
 from backupsaftonline.extract_info import extract_info
 from backupsaftonline.nifs import nifs
 from backupsaftonline.search_nif import search_nif
-
+import sys
+import time
 
 def scrapy_nif(driver, file):
     """
@@ -26,7 +27,9 @@ def scrapy_nif(driver, file):
     """
     info_list = []
     my_nifs = nifs(file)
-    for nif in my_nifs:
+    quantity_nifs = len(my_nifs)
+
+    for i, nif in enumerate(my_nifs):
         search_nif(driver, nif)
 
         details = {}
@@ -49,6 +52,11 @@ def scrapy_nif(driver, file):
         driver.get(
             'https://app.saftonline.pt/empresas?gv-emp-page=1&gv-emp-rows=1600'
         )
-        print(nif)
 
+        # Atualiza a linha no terminal com o progresso
+        sys.stdout.write(f"\rNIFs processados: {i + 1}/{quantity_nifs}")
+        sys.stdout.flush()
+        time.sleep(0.01)  # Simula algum processamento, remova ou ajuste conforme necessário
+
+    print("\nProcessamento concluído")
     return info_list
