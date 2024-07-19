@@ -10,6 +10,20 @@ from backupsaftonline.search_nif import search_nif
 
 
 def scrapy_nif(driver, file):
+    """
+    Scrapes NIF (tax identification number) details and account information from the SAFTONLINE application.
+
+    This function reads NIFs from a specified file, searches for each NIF in the SAFTONLINE application,
+    extracts details and account information associated with each NIF, and compiles this information into a list
+    of dictionaries. It also ensures the application returns to the initial page after each search.
+
+    Args:
+        driver (webdriver.Edge): The Selenium WebDriver instance used to interact with the web page.
+        file (str): The path to the text file containing the list of NIFs to be searched.
+
+    Returns:
+        list of dict: A list of dictionaries, each containing details and account information for a NIF.
+    """
     info_list = []
     my_nifs = nifs(file)
     for nif in my_nifs:

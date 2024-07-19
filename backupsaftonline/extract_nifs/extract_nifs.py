@@ -9,12 +9,9 @@ e a partir dai vamos para iniciar o programa como sempre"""
 import os
 
 import pandas as pd
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
-from backupsaftonline.driver import setup_driver as driver
 
 
 def download_nifs(driver):

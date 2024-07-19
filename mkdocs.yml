@@ -1,0 +1,4 @@
+site_name: Backup SAFTOnline Documentation
+
+nav:
+  - Home: index.md

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Backup SAFTOnline Documentation</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/fontawesome.min.css" rel="stylesheet">
+        <link href="css/brands.min.css" rel="stylesheet">
+        <link href="css/solid.min.css" rel="stylesheet">
+        <link href="css/v4-font-face.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Backup SAFTOnline Documentation</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#backup-saftonline-documentation" class="nav-link">Backup SAFTOnline Documentation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#overview" class="nav-link">Overview</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#modules" class="nav-link">Modules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#how-to-use" class="nav-link">How to Use</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#additional-information" class="nav-link">Additional Information</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#license" class="nav-link">License</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="backup-saftonline-documentation">Backup SAFTOnline Documentation</h1>
+<p>Welcome to the documentation for the Backup SAFTOnline project. This project provides tools for interacting with the SAFTOnline API and automating various tasks related to data backup and extraction.</p>
+<h2 id="overview">Overview</h2>
+<p>The Backup SAFTOnline project consists of several components:
+- <strong>Driver Setup</strong>: Configuration and management of the web driver used for interaction with the SAFTOnline application.
+- <strong>Login</strong>: Automation of the login process to the SAFTOnline platform.
+- <strong>Data Extraction</strong>: Extraction of NIFs and other relevant data.
+- <strong>File Management</strong>: Handling of files related to data extraction and backup.</p>
+<h2 id="modules">Modules</h2>
+<h3 id="driver">Driver</h3>
+<p>The <code>backupsaftonline.driver</code> module handles the setup and teardown of the web driver.</p>
+<ul>
+<li><strong><code>setup_driver</code></strong>: Configures and initializes the web driver for use with the SAFTOnline application.</li>
+<li><strong><code>quit_driver</code></strong>: Cleans up and closes the web driver.</li>
+</ul>
+<h3 id="login">Login</h3>
+<p>The <code>backupsaftonline.login</code> module manages the login process.</p>
+<ul>
+<li><strong><code>login(driver, email, password)</code></strong>: Logs into the SAFTOnline application using the provided email and password.</li>
+</ul>
+<h3 id="data-extraction">Data Extraction</h3>
+<p>The <code>backupsaftonline.extract_nifs</code> module is responsible for extracting NIFs and managing files.</p>
+<ul>
+<li><strong><code>delete_file(file)</code></strong>: Deletes a specified file.</li>
+<li><strong><code>download_nifs(driver)</code></strong>: Downloads NIF data using the web driver.</li>
+<li><strong><code>read_xlsx(directory, filename)</code></strong>: Reads data from an Excel file.</li>
+</ul>
+<h3 id="nif-management">NIF Management</h3>
+<p>The <code>backupsaftonline.nifs</code> module manages NIF data.</p>
+<ul>
+<li><strong><code>nifs(file)</code></strong>: Reads NIFs from a specified text file.</li>
+</ul>
+<h3 id="search-and-scrape">Search and Scrape</h3>
+<p>The <code>backupsaftonline.search_nif</code> module handles searching and scraping data for a specific NIF.</p>
+<ul>
+<li><strong><code>search_nif(driver, nif)</code></strong>: Searches for a specific NIF in the SAFTOnline application and navigates to the details page.</li>
+</ul>
+<h3 id="scraping">Scraping</h3>
+<p>The <code>backupsaftonline.scrapy_nif</code> module scrapes information related to NIFs.</p>
+<ul>
+<li><strong><code>scrapy_nif(driver, file)</code></strong>: Scrapes data for multiple NIFs and collects relevant details.</li>
+</ul>
+<h3 id="backup">Backup</h3>
+<p>The <code>backupsaftonline.main</code> module orchestrates the backup process.</p>
+<ul>
+<li><strong><code>Backup</code> Class</strong>: Manages the entire backup process, including login, data extraction, and file management.</li>
+</ul>
+<h2 id="how-to-use">How to Use</h2>
+<ol>
+<li><strong>Setup the Environment</strong>: Install requirements and configure the environment.</li>
+<li><strong>Set your website credentials</strong>: Set your login and password for saftonline.</li>
+<li><strong>Choose your webdriver</strong>: Choose your prefer webbrowser to use.</li>
+<li><strong>Start the program</strong>: Use <code>python backup.py</code>.</li>
+</ol>
+<h2 id="additional-information">Additional Information</h2>
+<p>For more details, refer to the individual module documentation linked above.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="../LICENSE">LICENSE</a> file for details.</p>
+<hr />
+<p>Feel free to reach out with any questions or contributions to the project!</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js"></script>
+        <script src="search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.6.0
+Build Date UTC : 2024-07-19 12:25:48.028400+00:00
+-->
