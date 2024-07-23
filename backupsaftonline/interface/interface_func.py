@@ -1,0 +1,2 @@
+class InterfaceFunc:
+    pass
