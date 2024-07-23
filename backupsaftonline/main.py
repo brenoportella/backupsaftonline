@@ -5,11 +5,9 @@ import pandas as pd
 from backupsaftonline import credentials
 from backupsaftonline.driver import quit_driver
 from backupsaftonline.driver import setup_driver as driver
-from backupsaftonline.extract_nifs.extract_nifs import (
-    delete_file,
-    download_nifs,
-    read_xlsx,
-)
+from backupsaftonline.extract_nifs.extract_nifs import (delete_file,
+                                                        download_nifs,
+                                                        read_xlsx)
 from backupsaftonline.login import login
 from backupsaftonline.scrapy_nif import scrapy_nif
 

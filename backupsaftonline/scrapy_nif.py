@@ -1,3 +1,6 @@
+import sys
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -7,8 +10,7 @@ from backupsaftonline.details_fields import details_fields
 from backupsaftonline.extract_info import extract_info
 from backupsaftonline.nifs import nifs
 from backupsaftonline.search_nif import search_nif
-import sys
-import time
+
 
 def scrapy_nif(driver, file):
     """
@@ -54,9 +56,11 @@ def scrapy_nif(driver, file):
         )
 
         # Atualiza a linha no terminal com o progresso
-        sys.stdout.write(f"\rNIFs processados: {i + 1}/{quantity_nifs}")
+        sys.stdout.write(f'\rNIFs processados: {i + 1}/{quantity_nifs}')
         sys.stdout.flush()
-        time.sleep(0.01)  # Simula algum processamento, remova ou ajuste conforme necessário
+        time.sleep(
+            0.01
+        )  # Simula algum processamento, remova ou ajuste conforme necessário
 
-    print("\nProcessamento concluído")
+    print('\nProcessamento concluído')
     return info_list
