@@ -11,10 +11,6 @@ from backupsaftonline.extract_nifs.extract_nifs import (delete_file,
 from backupsaftonline.login import login
 from backupsaftonline.scrapy_nif import scrapy_nif
 
-email = credentials.email
-password = credentials.password
-
-
 class Backup:
     """
     A class to perform the backup operations for SAFTONLINE.
@@ -45,6 +41,11 @@ class Backup:
         Returns:
             None
         """
+
+        creds = credentials.load_credentials()
+        email = creds.get('email', '')
+        password = creds.get('password', '')
+
         login(self.driver, email, password)
         download_nifs(self.driver)
         time.sleep(1)
