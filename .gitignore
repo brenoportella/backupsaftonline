@@ -1,6 +1,7 @@
 nif_saft.txt
-credentials.py
+credentials.txt
 *.xlsx
+*.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
