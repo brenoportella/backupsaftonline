@@ -1,0 +1,7 @@
+branco = '#f1f1f1'
+verde = '#d7e6bf'
+hover_verde = '#c0d89a'
+preto = '#000000'
+place_holder = '#808080'
+roxo = '#8A05BE'
+hover_roxo = '#BA4DE3'
