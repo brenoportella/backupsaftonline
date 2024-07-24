@@ -3,3 +3,5 @@ selenium
 pyfiglet
 setuptools
 xlrd
+customtkinter
+tkinter
