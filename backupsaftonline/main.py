@@ -11,6 +11,7 @@ from backupsaftonline.extract_nifs.extract_nifs import (delete_file,
 from backupsaftonline.login import login
 from backupsaftonline.scrapy_nif import scrapy_nif
 
+
 class Backup:
     """
     A class to perform the backup operations for SAFTONLINE.
