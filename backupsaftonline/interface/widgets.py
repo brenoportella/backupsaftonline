@@ -89,6 +89,20 @@ class Widgets:
             relx=0, rely=0.8, relheight=0.08, relwidth=1
         )
 
+        interface.progressbar = ctk.CTkProgressBar(
+            interface.frame_1,
+            width=230,
+            height=16,
+            border_width=1,
+            corner_radius=5,
+            mode='determinate',
+            progress_color=branco,
+            fg_color=branco,
+            border_color=branco,
+        )
+        interface.progressbar.set(value=0)
+        interface.progressbar.place(relx=0.25, rely=0.5)
+
     @staticmethod
     def options_menu(interface):
         interface.menu_bar = tk.Menu(interface.root)

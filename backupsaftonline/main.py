@@ -27,7 +27,7 @@ class Backup:
         self.driver = driver()
         self.shutdown_flag = shutdown_flag
 
-    def core(self):
+    def core(self, update_progress_callback):
         """
         Executes the core backup process.
 
@@ -53,7 +53,10 @@ class Backup:
         read_xlsx('backupsaftonline', 'Empresas_513029818.xls')
         delete_file('backupsaftonline/Empresas_513029818.xls')
         info = scrapy_nif(
-            self.driver, 'backupsaftonline/nif_saft.txt', self.shutdown_flag
+            self.driver,
+            'backupsaftonline/nif_saft.txt',
+            self.shutdown_flag,
+            update_progress_callback,
         )
 
         quit_driver(self.driver)

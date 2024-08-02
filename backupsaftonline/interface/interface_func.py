@@ -4,6 +4,7 @@ from tkinter import messagebox
 
 import backupsaftonline.main as bp
 from backupsaftonline.credentials import save_credentials
+from backupsaftonline.interface.colors import *
 
 
 class InterfaceFunc:
@@ -25,16 +26,22 @@ class InterfaceFunc:
 
     def start_backup(self):
         if not self.is_processing:
+            self.update_progress(0)
             self.is_processing = True
-
+            self.interface.progressbar.configure(
+                progress_color=hover_roxo, border_color=preto
+            )
             email = self.interface.login_entry.get()
             password = self.interface.pwd_entry.get()
             save_credentials(email, password)
 
             try:
                 backup = bp.Backup(self.shutdown_flag)
-                backup.core()
+                backup.core(self.update_progress)
             finally:
+                messagebox.showinfo(
+                    'CONCLUÍDO', 'O processo foi finalizado com exito.'
+                )
                 self.is_processing = False
         else:
             self.is_processing_alert()
@@ -48,3 +55,8 @@ class InterfaceFunc:
 
     def stop_backup(self):
         self.shutdown_flag.set()
+
+    def update_progress(self, value):
+        self.interface.root.after(
+            0, lambda: self.interface.progressbar.set(value / 100)
+        )
