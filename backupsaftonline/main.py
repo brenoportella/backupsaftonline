@@ -20,11 +20,12 @@ class Backup:
     downloading NIFs, reading and processing data, and saving the final backup to an Excel file.
     """
 
-    def __init__(self):
+    def __init__(self, shutdown_flag):
         """
         Initializes the Backup class by setting up the Selenium WebDriver.
         """
         self.driver = driver()
+        self.shutdown_flag = shutdown_flag
 
     def core(self):
         """
@@ -42,7 +43,6 @@ class Backup:
         Returns:
             None
         """
-
         creds = credentials.load_credentials()
         email = creds.get('email', '')
         password = creds.get('password', '')
@@ -52,11 +52,14 @@ class Backup:
         time.sleep(1)
         read_xlsx('backupsaftonline', 'Empresas_513029818.xls')
         delete_file('backupsaftonline/Empresas_513029818.xls')
-        info = scrapy_nif(self.driver, 'backupsaftonline/nif_saft.txt')
+        info = scrapy_nif(
+            self.driver, 'backupsaftonline/nif_saft.txt', self.shutdown_flag
+        )
 
         quit_driver(self.driver)
 
-        df = pd.DataFrame(info)
-        process_date = time.strftime('%d-%m-%Y')
-        xlsx_name = f'backup-saft-{process_date}.xlsx'
-        df.to_excel(xlsx_name, index=False)
+        if not self.shutdown_flag.is_set():
+            df = pd.DataFrame(info)
+            process_date = time.strftime('%d-%m-%Y')
+            xlsx_name = f'backup-saft-{process_date}.xlsx'
+            df.to_excel(xlsx_name, index=False)

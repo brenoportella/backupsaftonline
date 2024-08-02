@@ -111,3 +111,6 @@ class Widgets:
         )
 
         interface.root.config(menu=interface.menu_bar)
+
+
+# add a progress bar, set it to 0 at the start of execution

@@ -9,6 +9,8 @@ from backupsaftonline.credentials import save_credentials
 class InterfaceFunc:
     def __init__(self, interface):
         self.interface = interface
+        self.is_processing = False
+        self.shutdown_flag = threading.Event()
 
     def open_pdf_with_edge(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,15 +24,27 @@ class InterfaceFunc:
         )
 
     def start_backup(self):
-        email = self.interface.login_entry.get()
-        password = self.interface.pwd_entry.get()
-        save_credentials(email, password)  # Salvar credenciais
+        if not self.is_processing:
+            self.is_processing = True
 
-        backup = bp.Backup()
-        backup.core()
+            email = self.interface.login_entry.get()
+            password = self.interface.pwd_entry.get()
+            save_credentials(email, password)
 
-        # Após o backup ser concluído, atualize a UI
-        # self.interface.update_ui_callback('Backup completed!')
+            try:
+                backup = bp.Backup(self.shutdown_flag)
+                backup.core()
+            finally:
+                self.is_processing = False
+        else:
+            self.is_processing_alert()
 
     def run_start_backup(self):
+        self.shutdown_flag.clear()
         threading.Thread(target=self.start_backup).start()
+
+    def is_processing_alert(self):
+        messagebox.showwarning('ATENÇÃO', 'O processo já está em execução.')
+
+    def stop_backup(self):
+        self.shutdown_flag.set()

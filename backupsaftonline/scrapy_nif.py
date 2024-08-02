@@ -12,7 +12,7 @@ from backupsaftonline.nifs import nifs
 from backupsaftonline.search_nif import search_nif
 
 
-def scrapy_nif(driver, file):
+def scrapy_nif(driver, file, shutdown_flag):
     """
     Scrapes NIF (tax identification number) details and account information from the SAFTONLINE application.
 
@@ -32,6 +32,9 @@ def scrapy_nif(driver, file):
     quantity_nifs = len(my_nifs)
 
     for i, nif in enumerate(my_nifs):
+        if shutdown_flag.is_set():
+            break
+
         search_nif(driver, nif)
 
         details = {}
@@ -62,5 +65,7 @@ def scrapy_nif(driver, file):
             0.01
         )  # Simula algum processamento, remova ou ajuste conforme necessário
 
-    print('\nProcessamento concluído')
+    if not shutdown_flag.is_set():
+        print('\nProcessamento concluído')
+
     return info_list

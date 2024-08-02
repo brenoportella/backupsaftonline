@@ -16,9 +16,14 @@ class Interface:
         self.frames = Frames.frames(self, root)
         self.widgets = Widgets.widgets(self)
         self.widgets = Widgets.options_menu(self)
+        self.root.protocol('WM_DELETE_WINDOW', self.on_closing)
 
     def run_start_backup(self):
         self.interface_func.run_start_backup()
+
+    def on_closing(self):
+        self.interface_func.stop_backup()
+        self.root.destroy()
 
 
 # CASO PRECISE ATUALIZAR A UI USAR ESSE METODO
