@@ -32,7 +32,6 @@ def scrapy_nif(driver, file, shutdown_flag, update_progress_callback=None):
     for i, nif in enumerate(my_nifs):
         if shutdown_flag.is_set():
             break
-
         search_nif(driver, nif)
 
         details = {}
@@ -56,15 +55,12 @@ def scrapy_nif(driver, file, shutdown_flag, update_progress_callback=None):
             'https://app.saftonline.pt/empresas?gv-emp-page=1&gv-emp-rows=1600'
         )
 
-        sys.stdout.write(f'\rNIFs processados: {i + 1}/{quantity_nifs}')
-        sys.stdout.flush()
-        time.sleep(0.01)
+        # sys.stdout.write(f'\rNIFs processados: {i + 1}/{quantity_nifs}')
+        # sys.stdout.flush()
+        # time.sleep(0.01)
 
         if update_progress_callback:
             progress = int((i + 1) / quantity_nifs * 100)
-            update_progress_callback(progress)
-
-    if not shutdown_flag.is_set():
-        print('\nProcessamento concluído')
+            update_progress_callback(progress, i + 1, quantity_nifs)
 
     return info_list
