@@ -22,9 +22,9 @@ python backup.py
 ### Version 1.0
 - [X] Extract NIF list
 - [ ] Choose browser
-- [ ] Change credentials
+- [X] Change credentials
 - [ ] Choose shutdown the computer
 - [ ] Build a package
 
 ### Version 2.0
-- [ ] GUI version
+- [X] GUI version
