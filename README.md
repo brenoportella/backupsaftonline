@@ -1,6 +1,12 @@
 # Backup SaftOnline
 A webscrapy to store all the information available on saftonline
 
+
+## Install
+Download the [release](https://github.com/brenoportella/backupsaftonline/releases/tag/RELEASE), extract the zip file and execute the EXE file.
+
+
+
 ### Setup
 **clone the repository**
 ```bash
@@ -15,7 +21,7 @@ pip install -r requiriments.txt
 
 ### Usage
 ```bash
-python backup.py
+python backup_interface.py
 ```
 
 ## Roadmap
