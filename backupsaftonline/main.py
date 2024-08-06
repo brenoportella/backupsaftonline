@@ -1,9 +1,10 @@
+import os
 import time
 
 import pandas as pd
 
 from backupsaftonline import credentials
-from backupsaftonline.driver import quit_driver
+from backupsaftonline.driver import download_dir, quit_driver
 from backupsaftonline.driver import setup_driver as driver
 from backupsaftonline.extract_nifs.extract_nifs import (delete_file,
                                                         download_nifs,
@@ -50,11 +51,12 @@ class Backup:
         login(self.driver, email, password)
         download_nifs(self.driver)
         time.sleep(1)
-        read_xlsx('backupsaftonline', 'Empresas_513029818.xls')
-        delete_file('backupsaftonline/Empresas_513029818.xls')
+        xlsx_path = download_dir
+        read_xlsx(xlsx_path, 'Empresas_513029818.xls')
+        delete_file(os.path.join(xlsx_path, 'Empresas_513029818.xls'))
         info = scrapy_nif(
             self.driver,
-            'backupsaftonline/nif_saft.txt',
+            os.path.join(xlsx_path, 'nif_saft.txt'),
             self.shutdown_flag,
             update_progress_callback,
         )
