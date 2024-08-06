@@ -16,7 +16,7 @@ cd backupsaftonline
 
 **install requirements**
 ```bash
-pip install -r requiriments.txt
+pip install -r requirements.txt
 ```
 
 ### Usage
