@@ -28,7 +28,7 @@ class Widgets:
             font=('Montserrat Bold', 14),
             text_color=preto,
         )
-        interface.login_entryLB.place(relx=0.25, rely=0.26)
+        interface.login_entryLB.place(relx=0.26, rely=0.26)
         interface.login_entry = ctk.CTkEntry(
             interface.frame_1,
             fg_color=branco,
@@ -39,7 +39,7 @@ class Widgets:
         )
         interface.login_entry.insert(0, email)
         interface.login_entry.place(
-            relx=0.25, rely=0.30, relheight=0.04, relwidth=0.48
+            relx=0.26, rely=0.30, relheight=0.04, relwidth=0.48
         )
 
         interface.pwd_entryLB = ctk.CTkLabel(
@@ -48,7 +48,7 @@ class Widgets:
             font=('Montserrat Bold', 14),
             text_color=preto,
         )
-        interface.pwd_entryLB.place(relx=0.25, rely=0.34)
+        interface.pwd_entryLB.place(relx=0.26, rely=0.34)
         interface.pwd_entry = ctk.CTkEntry(
             interface.frame_1,
             fg_color=branco,
@@ -60,7 +60,7 @@ class Widgets:
         )
         interface.pwd_entry.insert(0, password)
         interface.pwd_entry.place(
-            relx=0.25, rely=0.38, relheight=0.04, relwidth=0.48
+            relx=0.26, rely=0.38, relheight=0.04, relwidth=0.48
         )
 
         interface.start_bt = ctk.CTkButton(
@@ -101,7 +101,18 @@ class Widgets:
             border_color=branco,
         )
         interface.progressbar.set(value=0)
-        interface.progressbar.place(relx=0.25, rely=0.5)
+        interface.progressbar.place(relx=0.26, rely=0.5)
+
+        interface.progress_label = ctk.CTkLabel(
+            interface.frame_1,
+            text='0 / 0',
+            font=('Montserrat Bold', 14),
+            text_color=branco,
+            anchor='n',
+        )
+        interface.progress_label.place(
+            relx=0, rely=0.53, relwidth=1, relheight=0.04
+        )
 
     @staticmethod
     def options_menu(interface):
@@ -125,6 +136,3 @@ class Widgets:
         )
 
         interface.root.config(menu=interface.menu_bar)
-
-
-# add a progress bar, set it to 0 at the start of execution
