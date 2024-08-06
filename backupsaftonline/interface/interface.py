@@ -24,8 +24,3 @@ class Interface:
     def on_closing(self):
         self.interface_func.stop_backup()
         self.root.destroy()
-
-
-# CASO PRECISE ATUALIZAR A UI USAR ESSE METODO
-# def update_ui_callback(self, message):
-#     print(message)
