@@ -26,11 +26,12 @@ class InterfaceFunc:
 
     def start_backup(self):
         if not self.is_processing:
-            self.update_progress(0)
+            self.update_progress(0, 0, 0)
             self.is_processing = True
             self.interface.progressbar.configure(
                 progress_color=hover_roxo, border_color=preto
             )
+            self.interface.progress_label.configure(text_color=preto)
             email = self.interface.login_entry.get()
             password = self.interface.pwd_entry.get()
             save_credentials(email, password)
@@ -56,7 +57,13 @@ class InterfaceFunc:
     def stop_backup(self):
         self.shutdown_flag.set()
 
-    def update_progress(self, value):
+    def update_progress(self, value, i, qntd):
         self.interface.root.after(
             0, lambda: self.interface.progressbar.set(value / 100)
+        )
+        self.interface.root.after(
+            0,
+            lambda: self.interface.progress_label.configure(
+                text=f'{i} / {qntd}'
+            ),
         )
