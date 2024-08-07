@@ -30,7 +30,7 @@ python backup_interface.py
 - [ ] Choose browser
 - [X] Change credentials
 - [ ] Choose shutdown the computer
-- [ ] Build a package
+- [X] Build a package
 
 ### Version 2.0
 - [X] GUI version
