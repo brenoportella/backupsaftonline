@@ -1,6 +1,8 @@
 # Backup SaftOnline
 A webscrapy to store all the information available on saftonline
 
+![Backup SaftOnline](/assets/backupsaftonline_run.png)
+
 
 ## Install
 Download the [release](https://github.com/brenoportella/backupsaftonline/releases/tag/RELEASE), extract the zip file and execute the EXE file.
